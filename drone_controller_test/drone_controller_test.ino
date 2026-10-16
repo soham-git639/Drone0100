@@ -1,3 +1,6 @@
+//This is is the main controlling part of the tx as a UI on web hosting using Access point via esp32
+//The for now to camera feed is unavailable due to no on board camera . Future scope for using the ESPcam development board 
+
 #include<WiFi.h>
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
@@ -445,7 +448,6 @@ void setup() {
   ws.onEvent(onWsEvent);
   server.addHandler(&ws);
   
-  //server.on("/",HTTP_GET,[](AsyncWebServerRequest *req){req->send(200,"text/html",index_html);});
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
     request->send(200, "text/html",index_html);
   });
